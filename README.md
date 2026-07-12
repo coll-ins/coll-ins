@@ -49,10 +49,10 @@ I'm a software developer based in Nairobi, Kenya, currently sharpening my skills
   Short one-line description of what it does and why it matters.
 -->
 
-#### 🔹 [Project Name](https://github.com/your-username/your-repo)
+#### 🔹 [Project Name](https://github.com/coll-ins/your-repo)
 A short, punchy description of what this project does and what problem it solves.
 
-#### 🔹 [Project Name](https://github.com/your-username/your-repo)
+#### 🔹 [Project Name](https://github.com/coll-ins/your-repo)
 A short, punchy description of what this project does and what problem it solves.
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2C5364,100:00C9A7&height=3&width=100%" />
@@ -60,16 +60,16 @@ A short, punchy description of what this project does and what problem it solves
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00C9A7&icon_color=00C9A7&text_color=c9d1d9" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=your-username&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00C9A7&text_color=c9d1d9" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api?username=coll-ins&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00C9A7&icon_color=00C9A7&text_color=c9d1d9" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=coll-ins&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00C9A7&text_color=c9d1d9" height="165" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=your-username&theme=tokyonight&hide_border=true&background=0D1117&ring=00C9A7&fire=00C9A7&currStreakLabel=00C9A7" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=coll-ins&theme=tokyonight&hide_border=true&background=0D1117&ring=00C9A7&fire=00C9A7&currStreakLabel=00C9A7" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=your-username&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00C9A7&line=00C9A7&point=ffffff" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=coll-ins&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00C9A7&line=00C9A7&point=ffffff" />
 </p>
 
 > 🎨 **Want a different color mood?** Swap `tokyonight` for `radical`, `dracula`, `merko`, or `github_dark` in each link above — full list at [github-readme-stats themes](https://github.com/anuraghazra/github-readme-stats#themes).
