@@ -50,10 +50,10 @@ I'm a software developer based in Nairobi, Kenya, currently sharpening my skills
 -->
 
 #### 🔹 [Project Name](https://github.com/coll-ins/your-repo)
-A short, punchy description of what this project does and what problem it solves.
+
 
 #### 🔹 [Project Name](https://github.com/coll-ins/your-repo)
-A short, punchy description of what this project does and what problem it solves.
+
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2C5364,100:00C9A7&height=3&width=100%" />
 
@@ -70,6 +70,10 @@ A short, punchy description of what this project does and what problem it solves
 
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=coll-ins&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=00C9A7&line=00C9A7&point=ffffff" />
+</p>
+
+<p align="center">
+  <img src="https://ghchart.rshah.org/00C9A7/coll-ins" alt="Collins' contribution heatmap" />
 </p>
 
 > 🎨 **Want a different color mood?** Swap `tokyonight` for `radical`, `dracula`, `merko`, or `github_dark` in each link above — full list at [github-readme-stats themes](https://github.com/anuraghazra/github-readme-stats#themes).
