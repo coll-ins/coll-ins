@@ -23,8 +23,8 @@ I'm a software developer based in Nairobi, Kenya, currently sharpening my skills
 - 🔭 Currently building and shipping personal projects
 - 🌱 Learning new tools and leveling up my stack every week
 - 💡 Interested in automation, web apps, and solving everyday problems with code
-- 📫 Reach me: **[your email or LinkedIn here]**
-
+- 📫 Reach me: **[mainacollins184@gmail.com/ https://www.linkedin.com/in/collins-maina-dev/]**
+- 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2C5364,100:00C9A7&height=3&width=100%" />
 
 ### 🛠️ Skills & Tech Stack
@@ -37,8 +37,6 @@ I'm a software developer based in Nairobi, Kenya, currently sharpening my skills
   <!-- <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" /> -->
 </p>
 
-> 📝 **To add a new skill:** copy a badge line above, swap the name/color/logo (find any on [shields.io](https://shields.io)), and drop it in.
-
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2C5364,100:00C9A7&height=3&width=100%" />
 
 ### 📌 Featured Projects
@@ -49,10 +47,14 @@ I'm a software developer based in Nairobi, Kenya, currently sharpening my skills
   Short one-line description of what it does and why it matters.
 -->
 
-#### 🔹 [Project Name](https://github.com/coll-ins/your-repo)
+#### 🔹 [CONNECT](https://github.com/coll-ins/connect)
 
 
-#### 🔹 [Project Name](https://github.com/coll-ins/your-repo)
+
+
+#### [ESICOM](https://github.com/coll-ins/Esicom_suppliers.git)
+
+
 
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2C5364,100:00C9A7&height=3&width=100%" />
@@ -76,7 +78,7 @@ I'm a software developer based in Nairobi, Kenya, currently sharpening my skills
   <img src="https://ghchart.rshah.org/00C9A7/coll-ins" alt="Collins' contribution heatmap" />
 </p>
 
-> 🎨 **Want a different color mood?** Swap `tokyonight` for `radical`, `dracula`, `merko`, or `github_dark` in each link above — full list at [github-readme-stats themes](https://github.com/anuraghazra/github-readme-stats#themes).
+(https://github.com/anuraghazra/github-readme-stats#themes).
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9A7,50:2C5364,100:0F2027&height=100&section=footer" />
 
