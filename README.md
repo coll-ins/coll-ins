@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Animated gradient banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:2C5364,100:00C9A7&height=220&section=header&text=Collins&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Software%20Developer%20%7C%20Builder&descAlignY=55&descColor=B8FFF2" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:2C5364,100:00C9A7&height=220&section=header&text=Collins&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Software%20Engineer%20%7C%20Builder&descAlignY=55&descColor=B8FFF2" />
 
 <!-- Typewriter effect -->
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3000&pause=1000&color=00C9A7&center=true&vCenter=true&width=600&lines=Hi+there%2C+I'm+Collins+%F0%9F%91%8B;Software+Developer+%7C+Builder;I+turn+ideas+into+working+products;Always+shipping+something+new" alt="Typing SVG" />
@@ -18,7 +18,7 @@
 
 ### 🚀 About Me
 
-I'm a software developer based in Nairobi, Kenya, currently sharpening my skills at Moringa School. I like building real products from scratch — from idea, to code, to something people can actually use.
+I'm a software Engineer based in Nairobi, Kenya, currently sharpening my skills at Moringa School. I like building real products from scratch — from idea, to code, to something people can actually use.
 
 - 🔭 Currently building and shipping personal projects
 - 🌱 Learning new tools and leveling up my stack every week
@@ -52,7 +52,7 @@ I'm a software developer based in Nairobi, Kenya, currently sharpening my skills
 
 
 
-#### [ESICOM](https://github.com/coll-ins/Esicom_suppliers.git)
+#### 🔹 [ESICOM](https://github.com/coll-ins/Esicom_suppliers.git)
 
 
 
@@ -77,8 +77,6 @@ I'm a software developer based in Nairobi, Kenya, currently sharpening my skills
 <p align="center">
   <img src="https://ghchart.rshah.org/00C9A7/coll-ins" alt="Collins' contribution heatmap" />
 </p>
-
-(https://github.com/anuraghazra/github-readme-stats#themes).
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9A7,50:2C5364,100:0F2027&height=100&section=footer" />
 
