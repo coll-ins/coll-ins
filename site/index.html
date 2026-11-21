@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Collins Maina | Software Engineer</title>
+<meta name="description" content="Collins Maina, software engineer in Nairobi. Web apps, automation and APIs.">
+<style>
+:root{--bg:#070b10;--ink:#eaf2f5;--mute:#8fa1ac;--teal:#00C9A7;--teal2:#5eead4;--line:#1c2a34}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif;overflow-x:hidden}
+canvas#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(0,201,167,.16),transparent 65%);transform:translate(-50%,-50%);left:50%;top:50%}
+main{position:relative;z-index:2;max-width:1040px;margin:auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;
+  padding:18px 32px;backdrop-filter:blur(10px);background:rgba(7,11,16,.55);border-bottom:1px solid rgba(255,255,255,.05)}
+nav b{font-family:ui-monospace,Consolas,monospace;color:var(--teal);font-weight:600}
+nav a{color:var(--mute);text-decoration:none;margin-left:22px;font-size:14px;transition:.2s}
+nav a:hover{color:var(--teal2)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:80px}
+.prompt{font-family:ui-monospace,Consolas,monospace;color:var(--teal);font-size:14px;margin-bottom:14px}
+h1{font-size:clamp(44px,9vw,104px);line-height:1;font-weight:800;letter-spacing:-.04em;
+  background:linear-gradient(120deg,#fff 20%,#8ff5e2 60%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;
+  transform-style:preserve-3d;will-change:transform}
+.sub{margin-top:18px;font-size:clamp(18px,2.4vw,24px);color:var(--mute)}
+.typed{margin-top:22px;font-family:ui-monospace,Consolas,monospace;color:var(--teal2);font-size:18px;min-height:28px}
+.typed i{display:inline-block;width:9px;height:18px;background:var(--teal);margin-left:3px;vertical-align:-3px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:12px;text-decoration:none;font-weight:600;font-size:15px;transition:.25s;border:1px solid var(--line);color:var(--ink)}
+.btn.p{background:linear-gradient(135deg,var(--teal),#1b8f95);color:#04110f;border-color:transparent;box-shadow:0 10px 30px -8px rgba(0,201,167,.55)}
+.btn:hover{transform:translateY(-3px);border-color:var(--teal)}
+h2{font-size:14px;font-family:ui-monospace,Consolas,monospace;color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:28px}
+section{padding:90px 0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;perspective:1200px}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+.card{position:relative;display:block;text-decoration:none;color:inherit;border-radius:20px;padding:28px;min-height:230px;
+  background:linear-gradient(160deg,#14202a,#0a1016);border:1px solid var(--line);
+  transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .3s,border-color .3s;
+  box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
+.card:hover{border-color:rgba(0,201,167,.55);box-shadow:0 40px 70px -25px rgba(0,201,167,.35)}
+.card::after{content:"";position:absolute;inset:0;border-radius:20px;pointer-events:none;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.12),transparent 45%);opacity:0;transition:opacity .3s}
+.card:hover::after{opacity:1}
+.card h3{font-size:24px;transform:translateZ(40px)}
+.card p{color:var(--mute);margin-top:8px;transform:translateZ(24px)}
+.card .tag{color:var(--teal);font-size:15px;margin-top:6px;transform:translateZ(30px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;transform:translateZ(34px)}
+.chips span{font-family:ui-monospace,Consolas,monospace;font-size:12px;padding:4px 12px;border-radius:99px;color:var(--teal2);
+  background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.35)}
+.live{position:absolute;top:24px;right:26px;font:12px ui-monospace,Consolas,monospace;color:var(--mute);transform:translateZ(30px)}
+.live::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#28c840;margin-right:8px;animation:b 2s infinite}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}
+.kpi{padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,#14202a,#0a1016);transition:.25s}
+.kpi:hover{transform:translateY(-4px) rotateX(8deg);border-color:rgba(0,201,167,.5);box-shadow:0 18px 40px -18px rgba(0,201,167,.4)}
+.kpi b{display:block;font-size:38px;font-weight:800;line-height:1.1}.kpi span{font:12px ui-monospace,Consolas,monospace;color:var(--mute)}
+.panel{border:1px solid var(--line);border-radius:18px;padding:22px;background:linear-gradient(160deg,#14202a,#0a1016);margin-bottom:22px}
+.panel h4{font:600 12px ui-monospace,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.two{display:grid;grid-template-columns:1fr 1.6fr;gap:22px}
+.bars{display:flex;align-items:flex-end;gap:3px;height:190px;border-bottom:1px solid var(--line)}
+.bars div.z{background:#22333f}
+.bars div{flex:1;min-height:4px;border-radius:6px 6px 0 0;background:linear-gradient(to top,rgba(0,201,167,.25),#00C9A7);height:0;transition:height .9s cubic-bezier(.2,.8,.2,1),filter .2s}
+.bars div:hover{filter:brightness(1.5) drop-shadow(0 0 8px #00C9A7)}
+.lang{margin-bottom:12px;font-size:14px}.lang .row{display:flex;justify-content:space-between;margin-bottom:5px;color:#c3d1d8}
+.lang .row span:last-child{font:12px ui-monospace,Consolas,monospace;color:var(--mute)}
+.lang .tr{height:8px;border-radius:99px;background:#16222b;overflow:hidden}.lang .tr i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#00C9A7,#5eead4);transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,1fr);gap:4px}
+.heat i{aspect-ratio:1;border-radius:4px;border:1px solid rgba(255,255,255,.05);transition:transform .15s,box-shadow .15s}
+.heat i:hover{transform:scale(1.9) translateZ(0);box-shadow:0 0 12px rgba(0,201,167,.8);position:relative;z-index:2}
+.chips2{display:flex;flex-wrap:wrap;gap:10px;margin:-4px 0 22px}.chips2 span{padding:8px 16px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--mute);font-size:14px;transition:.2s}.chips2 span:hover{border-color:var(--teal);transform:translateY(-3px)}.chips2 b{color:var(--teal2);margin-right:4px}
+.axis{display:flex;justify-content:space-between;font:11px ui-monospace,Consolas,monospace;color:#6b7d88;margin-top:8px}
+.legend{margin-top:12px;font:11px ui-monospace,Consolas,monospace;color:var(--mute);display:flex;gap:4px;align-items:center;justify-content:flex-end}
+.legend i{width:13px;height:13px;border-radius:4px;display:inline-block}
+.seg{display:flex;gap:6px;margin:-6px 0 14px}.seg button{font:600 12px ui-monospace,Consolas,monospace;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--mute);cursor:pointer;transition:.2s}.seg button.on,.seg button:hover{color:#04110f;background:var(--teal);border-color:var(--teal)}
+.tip{position:fixed;pointer-events:none;z-index:9;padding:6px 10px;border-radius:8px;background:#0b1319;border:1px solid rgba(0,201,167,.5);font:12px ui-monospace,Consolas,monospace;color:var(--teal2);opacity:0;transition:opacity .12s;transform:translate(-50%,-130%);white-space:nowrap}
+@media (max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+.stack{display:flex;flex-wrap:wrap;gap:12px}
+.stack span{padding:10px 18px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.02);transition:.25s;cursor:default}
+.stack span:hover{transform:translateY(-4px) rotateX(10deg);border-color:var(--teal);color:var(--teal2);box-shadow:0 12px 26px -10px rgba(0,201,167,.5)}
+.about{max-width:640px;font-size:19px;color:#c3d1d8}
+footer{padding:50px 0 70px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+footer a{color:var(--teal2)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="glow" id="glow"></div>
+<nav><b>~/coll-ins</b><div><a href="#work">Work</a><a href="#stack">Stack</a><a href="#about">About</a><a href="https://github.com/coll-ins">GitHub</a></div></nav>
+<main>
+  <header class="hero">
+    <div class="prompt">$ whoami</div>
+    <h1 id="name">Collins<br>Maina</h1>
+    <p class="sub">Software engineer in Nairobi, Kenya.</p>
+    <div class="typed">currently building <span id="t"></span><i></i></div>
+    <div class="cta"><a class="btn p" href="#work">See my work</a><a class="btn" href="https://www.linkedin.com/in/collins-maina-dev/">LinkedIn</a><a class="btn" href="https://github.com/coll-ins">GitHub</a></div>
+  </header>
+
+  <section id="work">
+    <h2>Selected work</h2>
+    <div class="grid">
+      <a class="card rv tilt" href="https://github.com/coll-ins/connect"><span class="live">live</span>
+        <h3>Connect</h3><div class="tag">Seat booking for Nairobi's bus SACCOs</div>
+        <p>Book a seat, get a booking number, track the ride with live GPS. Operators assign drivers from a dashboard.</p>
+        <div class="chips"><span>Python</span><span>SMS</span><span>GPS</span></div></a>
+      <a class="card rv tilt" href="https://github.com/coll-ins/Esicom_suppliers"><span class="live">live</span>
+        <h3>Esicom Suppliers</h3><div class="tag">Business site with a built-in ledger</div>
+        <p>Quotes, invoices and stock in Django, plus a React dashboard for staff and a customer upload page.</p>
+        <div class="chips"><span>Django</span><span>React</span><span>Vercel</span></div></a>
+      <a class="card rv tilt" href="https://github.com/coll-ins/nexus">
+        <h3>Nexus</h3><div class="tag">An agent council for Claude Code</div>
+        <p>One orchestrator and four specialists, with custom skills and hooks that remember how I work.</p>
+        <div class="chips"><span>Shell</span><span>Claude Code</span></div></a>
+      <a class="card rv tilt" href="https://github.com/coll-ins/inventory-management">
+        <h3>Inventory Management</h3><div class="tag">Stock control for a small retailer</div>
+        <p>Flask API and CLI with OpenFoodFacts barcode lookups and a 38-test pytest suite.</p>
+        <div class="chips"><span>Flask</span><span>Python</span><span>pytest</span></div></a>
+    </div>
+  </section>
+
+  <section id="activity">
+    <h2>Activity</h2>
+    <div class="kpis rv" id="kpis"></div>
+    <div class="chips2 rv" id="chips"></div>
+    <div class="panel rv"><h4>Contributions per day</h4><div class="seg" id="seg"><button data-n="30">30D</button><button data-n="60" class="on">60D</button><button data-n="90">90D</button></div><div class="bars" id="bars"></div><div class="axis" id="axis"></div></div>
+    <div>
+      <div class="panel rv"><h4>Languages</h4><div id="langs"></div></div>
+      <div class="panel rv"><h4>Contribution map</h4><div class="heat" id="heat"></div><div class="legend">less <i style="background:#22333f"></i><i style="background:#0f6b5f"></i><i style="background:#13a48e"></i><i style="background:#1fd9b8"></i><i style="background:#aefbee"></i> more</div></div>
+    </div>
+    <div class="tip" id="tip"></div>
+  </section>
+
+  <section id="stack">
+    <h2>Stack</h2>
+    <div class="stack rv"><span>Python</span><span>Django</span><span>Flask</span><span>JavaScript</span><span>React</span><span>Tailwind</span><span>Git</span><span>Vercel</span></div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="about rv">Studying software engineering at Moringa School and shipping client and personal projects. I like taking a problem from idea to something people actually use, and I'm most interested in automation, web apps, and fixing everyday problems with code.</p>
+  </section>
+
+  <footer>Built by Collins. <a href="https://www.linkedin.com/in/collins-maina-dev/">LinkedIn</a> &middot; <a href="https://github.com/coll-ins">GitHub</a></footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ---- typed roles ----
+(function(){
+  var roles=["web apps","automation tools","APIs","agents"],el=document.getElementById("t"),i=0,j=0,del=false;
+  function tick(){
+    var w=roles[i];
+    el.textContent=w.slice(0,j);
+    if(!del&&j<w.length){j++;setTimeout(tick,70)}
+    else if(!del){del=true;setTimeout(tick,1300)}
+    else if(j>0){j--;setTimeout(tick,35)}
+    else{del=false;i=(i+1)%roles.length;setTimeout(tick,250)}
+  }
+  tick();
+})();
+
+// ---- reveal on scroll ----
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(n){io.observe(n)});
+
+// ---- activity graphs (data injected by scripts/graphs.py) ----
+var STATS=/*DATA*/{"generated":"2026-11-21","user":"coll-ins","repos_total":57,"repos_own":23,"languages":[["Python",2872888],["JavaScript",1558330],["CSS",417265],["HTML",74057],["Shell",25327],["PowerShell",1836],["Dockerfile",1350],["Makefile",1047],["Mako",988]],"days":{"2026-10-27":2,"2026-07-12":3,"2026-06-06":3,"2026-03-22":2,"2026-03-20":1,"2026-05-06":2,"2026-11-21":4,"2026-11-15":2,"2026-11-11":40,"2026-11-10":43,"2026-11-09":33,"2026-11-08":44,"2026-11-07":39,"2026-11-05":8,"2026-10-31":11,"2026-10-30":3,"2026-10-24":2,"2026-10-20":1,"2026-10-19":2,"2026-10-18":4,"2026-10-17":6,"2026-03-28":5,"2026-03-27":1,"2026-11-12":13,"2026-11-03":5,"2026-11-02":7,"2026-10-26":2,"2026-10-23":2,"2026-10-22":4,"2026-10-21":5,"2026-03-23":7,"2026-03-11":3,"2026-04-23":2,"2026-10-05":9,"2026-05-15":1,"2026-05-14":1,"2026-03-25":2,"2026-10-29":13,"2026-04-17":1,"2026-09-05":1,"2026-05-04":2,"2026-09-02":1,"2026-09-07":2},"per_repo":{"coll-ins":8,"collins-personal-web":3,"color-clock":2,"connect":150,"cssfunc":6,"Esicom_suppliers":56,"first-repo":4,"first_repo":1,"flavourburst":2,"inventory-management":9,"Moringa-task":0,"Moringa-task-presentation":2,"myfirst_repo":7,"nexus":74,"notes":4,"pesa":1,"pizza-price-calculator-":1,"portfolio-spa":2,"py-sum1-lab":1,"task_management_application":2,"workout":9},"calendar":{"2025-11-16":0,"2025-11-17":0,"2025-11-18":0,"2025-11-19":0,"2025-11-20":0,"2025-11-21":0,"2025-11-22":0,"2025-11-23":0,"2025-11-24":0,"2025-11-25":0,"2025-11-26":0,"2025-11-27":0,"2025-11-28":0,"2025-11-29":0,"2025-11-30":0,"2025-12-01":0,"2025-12-02":0,"2025-12-03":0,"2025-12-04":0,"2025-12-05":0,"2025-12-06":0,"2025-12-07":0,"2025-12-08":0,"2025-12-09":0,"2025-12-10":0,"2025-12-11":0,"2025-12-12":0,"2025-12-13":0,"2025-12-14":0,"2025-12-15":0,"2025-12-16":0,"2025-12-17":0,"2025-12-18":0,"2025-12-19":0,"2025-12-20":0,"2025-12-21":0,"2025-12-22":0,"2025-12-23":0,"2025-12-24":0,"2025-12-25":0,"2025-12-26":0,"2025-12-27":0,"2025-12-28":0,"2025-12-29":0,"2025-12-30":0,"2025-12-31":0,"2026-01-01":0,"2026-01-02":0,"2026-01-03":0,"2026-01-04":0,"2026-01-05":0,"2026-01-06":0,"2026-01-07":0,"2026-01-08":0,"2026-01-09":0,"2026-01-10":0,"2026-01-11":0,"2026-01-12":0,"2026-01-13":0,"2026-01-14":0,"2026-01-15":0,"2026-01-16":0,"2026-01-17":0,"2026-01-18":0,"2026-01-19":0,"2026-01-20":0,"2026-01-21":0,"2026-01-22":0,"2026-01-23":0,"2026-01-24":0,"2026-01-25":0,"2026-01-26":0,"2026-01-27":0,"2026-01-28":0,"2026-01-29":0,"2026-01-30":0,"2026-01-31":0,"2026-02-01":0,"2026-02-02":0,"2026-02-03":0,"2026-02-04":0,"2026-02-05":0,"2026-02-06":0,"2026-02-07":0,"2026-02-08":0,"2026-02-09":0,"2026-02-10":0,"2026-02-11":0,"2026-02-12":0,"2026-02-13":0,"2026-02-14":0,"2026-02-15":0,"2026-02-16":0,"2026-02-17":0,"2026-02-18":0,"2026-02-19":0,"2026-02-20":0,"2026-02-21":0,"2026-02-22":0,"2026-02-23":0,"2026-02-24":0,"2026-02-25":0,"2026-02-26":0,"2026-02-27":0,"2026-02-28":0,"2026-03-01":0,"2026-03-02":0,"2026-03-03":0,"2026-03-04":0,"2026-03-05":0,"2026-03-06":0,"2026-03-07":0,"2026-03-08":0,"2026-03-09":0,"2026-03-10":2,"2026-03-11":4,"2026-03-12":0,"2026-03-13":1,"2026-03-14":0,"2026-03-15":0,"2026-03-16":0,"2026-03-17":0,"2026-03-18":0,"2026-03-19":0,"2026-03-20":1,"2026-03-21":0,"2026-03-22":3,"2026-03-23":8,"2026-03-24":0,"2026-03-25":4,"2026-03-26":1,"2026-03-27":1,"2026-03-28":6,"2026-03-29":0,"2026-03-30":0,"2026-03-31":1,"2026-04-01":0,"2026-04-02":1,"2026-04-03":1,"2026-04-04":1,"2026-04-05":0,"2026-04-06":0,"2026-04-07":0,"2026-04-08":1,"2026-04-09":0,"2026-04-10":1,"2026-04-11":1,"2026-04-12":1,"2026-04-13":1,"2026-04-14":0,"2026-04-15":2,"2026-04-16":0,"2026-04-17":3,"2026-04-18":0,"2026-04-19":0,"2026-04-20":0,"2026-04-21":0,"2026-04-22":1,"2026-04-23":1,"2026-04-24":2,"2026-04-25":0,"2026-04-26":0,"2026-04-27":0,"2026-04-28":1,"2026-04-29":0,"2026-04-30":0,"2026-05-01":0,"2026-05-02":0,"2026-05-03":0,"2026-05-04":3,"2026-05-05":0,"2026-05-06":3,"2026-05-07":1,"2026-05-08":2,"2026-05-09":0,"2026-05-10":0,"2026-05-11":0,"2026-05-12":0,"2026-05-13":1,"2026-05-14":2,"2026-05-15":3,"2026-05-16":0,"2026-05-17":3,"2026-05-18":0,"2026-05-19":0,"2026-05-20":0,"2026-05-21":0,"2026-05-22":0,"2026-05-23":0,"2026-05-24":0,"2026-05-25":0,"2026-05-26":0,"2026-05-27":0,"2026-05-28":0,"2026-05-29":0,"2026-05-30":0,"2026-05-31":0,"2026-06-01":0,"2026-06-02":0,"2026-06-03":0,"2026-06-04":0,"2026-06-05":0,"2026-06-06":4,"2026-06-07":0,"2026-06-08":0,"2026-06-09":0,"2026-06-10":0,"2026-06-11":0,"2026-06-12":0,"2026-06-13":0,"2026-06-14":0,"2026-06-15":0,"2026-06-16":0,"2026-06-17":0,"2026-06-18":0,"2026-06-19":0,"2026-06-20":0,"2026-06-21":0,"2026-06-22":0,"2026-06-23":0,"2026-06-24":0,"2026-06-25":0,"2026-06-26":0,"2026-06-27":0,"2026-06-28":0,"2026-06-29":0,"2026-06-30":1,"2026-07-01":0,"2026-07-02":0,"2026-07-03":1,"2026-07-04":0,"2026-07-05":0,"2026-07-06":0,"2026-07-07":0,"2026-07-08":0,"2026-07-09":0,"2026-07-10":0,"2026-07-11":0,"2026-07-12":3,"2026-07-13":0,"2026-07-14":0,"2026-07-15":0,"2026-07-16":0,"2026-07-17":0,"2026-07-18":0,"2026-07-19":0,"2026-07-20":0,"2026-07-21":0,"2026-07-22":0,"2026-07-23":0,"2026-07-24":0,"2026-07-25":0,"2026-07-26":0,"2026-07-27":0,"2026-07-28":0,"2026-07-29":0,"2026-07-30":0,"2026-07-31":0,"2026-08-01":0,"2026-08-02":0,"2026-08-03":0,"2026-08-04":0,"2026-08-05":0,"2026-08-06":0,"2026-08-07":0,"2026-08-08":0,"2026-08-09":0,"2026-08-10":0,"2026-08-11":0,"2026-08-12":0,"2026-08-13":0,"2026-08-14":0,"2026-08-15":0,"2026-08-16":0,"2026-08-17":0,"2026-08-18":0,"2026-08-19":0,"2026-08-20":0,"2026-08-21":0,"2026-08-22":0,"2026-08-23":0,"2026-08-24":0,"2026-08-25":0,"2026-08-26":0,"2026-08-27":0,"2026-08-28":0,"2026-08-29":0,"2026-08-30":0,"2026-08-31":0,"2026-09-01":0,"2026-09-02":2,"2026-09-03":1,"2026-09-04":0,"2026-09-05":2,"2026-09-06":0,"2026-09-07":3,"2026-09-08":1,"2026-09-09":0,"2026-09-10":2,"2026-09-11":4,"2026-09-12":3,"2026-09-13":4,"2026-09-14":3,"2026-09-15":11,"2026-09-16":0,"2026-09-17":0,"2026-09-18":0,"2026-09-19":0,"2026-09-20":0,"2026-09-21":1,"2026-09-22":1,"2026-09-23":0,"2026-09-24":1,"2026-09-25":0,"2026-09-26":1,"2026-09-27":0,"2026-09-28":0,"2026-09-29":0,"2026-09-30":0,"2026-10-01":0,"2026-10-02":0,"2026-10-03":0,"2026-10-04":0,"2026-10-05":14,"2026-10-06":8,"2026-10-07":17,"2026-10-08":15,"2026-10-09":31,"2026-10-10":11,"2026-10-11":1,"2026-10-12":1,"2026-10-13":2,"2026-10-14":2,"2026-10-15":1,"2026-10-16":1,"2026-10-17":23,"2026-10-18":8,"2026-10-19":4,"2026-10-20":2,"2026-10-21":19,"2026-10-22":4,"2026-10-23":2,"2026-10-24":2,"2026-10-25":1,"2026-10-26":2,"2026-10-27":2,"2026-10-28":0,"2026-10-29":20,"2026-10-30":6,"2026-10-31":22,"2026-11-01":0,"2026-11-02":7,"2026-11-03":5,"2026-11-04":1,"2026-11-05":15,"2026-11-06":0,"2026-11-07":66,"2026-11-08":81,"2026-11-09":37,"2026-11-10":54,"2026-11-11":49,"2026-11-12":49,"2026-11-13":26,"2026-11-14":13,"2026-11-15":20,"2026-11-16":4,"2026-11-17":12,"2026-11-18":18,"2026-11-19":16,"2026-11-20":13,"2026-11-21":5},"profile":{"followers":5,"stars":2,"prs":56,"issues":1,"reviews":0,"commits":356}}/*END*/;
+(function(){
+  if(!STATS.calendar)return;
+  var tip=document.getElementById("tip");
+  function showTip(e,t){tip.textContent=t;tip.style.left=e.clientX+"px";tip.style.top=e.clientY+"px";tip.style.opacity=1}
+  function hideTip(){tip.style.opacity=0}
+  var days={},total=0;
+  Object.keys(STATS.calendar).forEach(function(k){days[k]=STATS.calendar[k];total+=STATS.calendar[k]});
+  var gen=new Date(STATS.generated+"T00:00:00Z");
+  var sun=new Date(gen);sun.setUTCDate(gen.getUTCDate()-gen.getUTCDay());
+  var start=new Date(sun);start.setUTCDate(sun.getUTCDate()-52*7);
+  function iso(d){return d.toISOString().slice(0,10)}
+  var heat=document.getElementById("heat"),daily=[],cols=["#22333f","#0f6b5f","#13a48e","#1fd9b8","#aefbee"];
+  function lv(c){return c==0?0:c==1?1:c<=4?2:c<=9?3:4}
+  var active=0,run=0,best=0;
+  for(var w=0;w<53;w++){
+    var sum=0;
+    for(var j=0;j<7;j++){
+      var d=new Date(start);d.setUTCDate(start.getUTCDate()+w*7+j);
+      var el=document.createElement("i");
+      if(d>gen){el.style.visibility="hidden";heat.appendChild(el);continue}
+      var c=days[iso(d)]||0;sum+=c;daily.push([c,d]);
+      if(c){active++;run++;if(run>best)best=run}else run=0;
+      el.style.background=cols[lv(c)];
+      (function(el,c,d){el.addEventListener("mousemove",function(e){showTip(e,c+" contribution"+(c==1?"":"s")+" · "+iso(d))});el.addEventListener("mouseleave",hideTip)})(el,c,d);
+      heat.appendChild(el);
+    }
+  }
+  // streak (current) + rank, same formula as github-readme-stats
+  var cur=0,ix=daily.length-1;if(ix>=0&&daily[ix][0]==0)ix--;
+  while(ix>=0&&daily[ix][0]>0){cur++;ix--}
+  var P=STATS.profile||{};
+  function ec(x){return 1-Math.pow(2,-x)}function lc(x){return x/(1+x)}
+  var score=(2*ec((P.commits||0)/250)+3*ec((P.prs||0)/50)+ec((P.issues||0)/25)+ec((P.reviews||0)/2)+4*lc((P.stars||0)/50)+lc((P.followers||0)/10))/12,pct=(1-score)*100,grade="C";
+  [[1,"S"],[12.5,"A+"],[25,"A"],[37.5,"A-"],[50,"B+"],[62.5,"B"],[75,"B-"],[87.5,"C+"],[100,"C"]].some(function(t){if(pct<=t[0]){grade=t[1];return true}});
+  var k=[[total,"contributions, last year"],[cur,"current streak (days)"],[best,"longest streak (days)"],[grade,"rank"]],kp=document.getElementById("kpis");
+  k.forEach(function(x){var d=document.createElement("div");d.className="kpi";d.innerHTML="<b data-n='"+x[0]+"'>"+(typeof x[0]=="number"?0:x[0])+"</b><span>"+x[1]+"</span>";kp.appendChild(d)});
+  var chips=document.getElementById("chips");
+  [["Commits",P.commits],["Pull requests",P.prs],["Issues",P.issues],["Stars",P.stars],["Followers",P.followers],["Active days",active]].forEach(function(x){var c=document.createElement("span");c.innerHTML="<b>"+(x[1]||0)+"</b> "+x[0];chips.appendChild(c)});
+  // bars: fat daily bars, switchable range
+  var bars=document.getElementById("bars"),axis=document.getElementById("axis"),shown=false;
+  function drawBars(n){
+    var d=daily.slice(-n),mx=Math.max.apply(null,d.map(function(w){return w[0]}))||1;
+    bars.innerHTML="";axis.innerHTML="";
+    d.forEach(function(w,i){
+      var b=document.createElement("div");b.dataset.h=w[0]?Math.max(w[0]/mx*100,4):0;if(!w[0])b.className="z";
+      b.addEventListener("mousemove",function(e){showTip(e,w[0]+" contribution"+(w[0]==1?"":"s")+" · "+iso(w[1]))});b.addEventListener("mouseleave",hideTip);
+      bars.appendChild(b);
+      if(shown)setTimeout(function(){b.style.height=b.dataset.h+"%"},i*8);
+    });
+    [0,Math.floor(d.length/2),d.length-1].forEach(function(i){var s=document.createElement("span");s.textContent=iso(d[i][1]);axis.appendChild(s)});
+  }
+  drawBars(60);
+  document.querySelectorAll("#seg button").forEach(function(btn){btn.addEventListener("click",function(){
+    document.querySelectorAll("#seg button").forEach(function(x){x.classList.remove("on")});btn.classList.add("on");drawBars(+btn.dataset.n);
+  })});
+  // languages
+  var keep=["Python","JavaScript","CSS","HTML","Shell"],L=STATS.languages.filter(function(l){return keep.indexOf(l[0])>-1}),oth=STATS.languages.filter(function(l){return keep.indexOf(l[0])<0}).reduce(function(a,l){return a+l[1]},0);
+  if(oth)L.push(["Other",oth]);
+  var tb=L.reduce(function(a,l){return a+l[1]},0),lg=document.getElementById("langs");
+  L.forEach(function(l){var p=l[1]/tb*100,d=document.createElement("div");d.className="lang";d.innerHTML="<div class='row'><span>"+l[0]+"</span><span>"+p.toFixed(1)+"%</span></div><div class='tr'><i data-w='"+p.toFixed(1)+"'></i></div>";lg.appendChild(d)});
+  // animate when visible
+  var pan=document.getElementById("activity"),done=false;
+  new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!done){done=true;
+    shown=true;document.querySelectorAll("#bars div").forEach(function(b,i){setTimeout(function(){b.style.height=b.dataset.h+"%"},i*12)});
+    document.querySelectorAll("#langs i").forEach(function(b){b.style.width=b.dataset.w+"%"});
+    document.querySelectorAll(".kpi b").forEach(function(b){var n=+b.dataset.n;if(isNaN(n))return;var t0=performance.now();(function f(t){var p=Math.min((t-t0)/1200,1);b.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)});
+  }},{threshold:.2}).observe(pan);
+})();
+
+// ---- card tilt + glare ----
+document.querySelectorAll(".tilt").forEach(function(c){
+  c.addEventListener("mousemove",function(e){
+    var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    c.style.transform="rotateY("+((x-.5)*16)+"deg) rotateX("+((.5-y)*16)+"deg) translateZ(14px)";
+    c.style.setProperty("--mx",(x*100)+"%");c.style.setProperty("--my",(y*100)+"%");
+  });
+  c.addEventListener("mouseleave",function(){c.style.transform=""});
+});
+
+// ---- cursor glow + hero name parallax ----
+var glow=document.getElementById("glow"),name=document.getElementById("name"),mx=0,my=0;
+window.addEventListener("mousemove",function(e){
+  glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";
+  mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5);
+  name.style.transform="perspective(900px) rotateY("+(mx*10)+"deg) rotateX("+(-my*8)+"deg)";
+});
+
+// ---- three.js background ----
+(function(){
+  if(!window.THREE||matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+  var cv=document.getElementById("bg"),r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+  r.setPixelRatio(Math.min(devicePixelRatio,2));
+  var s=new THREE.Scene(),cam=new THREE.PerspectiveCamera(55,1,.1,100);cam.position.z=9;
+  var teal=0x00c9a7,grp=new THREE.Group();s.add(grp);
+  var shapes=[new THREE.IcosahedronGeometry(2.1,1),new THREE.OctahedronGeometry(1.2,0),new THREE.BoxGeometry(1.2,1.2,1.2)];
+  var pos=[[3.4,0.4,-1],[-4.6,-1.8,-3],[5.2,-2.6,-4]],meshes=[];
+  shapes.forEach(function(g,k){
+    var m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:teal,wireframe:true,transparent:true,opacity:k?0.3:0.5}));
+    m.position.set(pos[k][0],pos[k][1],pos[k][2]);grp.add(m);meshes.push(m);
+  });
+  var N=700,pg=new THREE.BufferGeometry(),pa=new Float32Array(N*3);
+  for(var i=0;i<N*3;i++)pa[i]=(Math.random()-.5)*34;
+  pg.setAttribute("position",new THREE.BufferAttribute(pa,3));
+  var pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0x5eead4,size:.04,transparent:true,opacity:.6}));s.add(pts);
+  function size(){r.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}
+  size();addEventListener("resize",size);
+  var t=0;
+  (function loop(){
+    t+=.005;
+    meshes.forEach(function(m,k){m.rotation.x=t*(.6+k*.3);m.rotation.y=t*(.8-k*.2);m.position.y+=Math.sin(t*2+k)*.002});
+    pts.rotation.y=t*.12;
+    grp.rotation.y+=(mx*.5-grp.rotation.y)*.04;grp.rotation.x+=(my*.3-grp.rotation.x)*.04;
+    cam.position.y=-scrollY*.0016;
+    r.render(s,cam);requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
