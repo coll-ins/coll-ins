@@ -15,7 +15,7 @@ OUT = os.path.join(A, "s")
 os.makedirs(OUT, exist_ok=True)
 MONO = "ui-monospace,SFMono-Regular,Consolas,Menlo,monospace"
 SANS = "-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
-BG = "#0b1015"
+BG = "#0d1117"
 
 
 def read(name):
