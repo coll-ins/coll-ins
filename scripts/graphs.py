@@ -132,8 +132,8 @@ if other:
     lang.append(("Other", other))
 tb = sum(b for _, b in lang)
 cols = ["#00C9A7", "#5eead4", "#2C8FA6", "#1b6b7d", "#a7f3e6", "#3d5560"]
-w, h = 420, 220
-cx, cy, r = 110, 130, 56
+w, h = 420, 230
+cx, cy, r = 110, 135, 56
 C = 2 * math.pi * r
 s = head(w, h, '<style>.seg{animation:draw 1.4s ease-out both}@keyframes draw{from{stroke-dasharray:0 1000}}</style>') + title("Languages", "By code written, original repos")
 s += f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#16222b" stroke-width="22"/>'
@@ -145,7 +145,7 @@ for i, (n, b) in enumerate(lang):
     off += frac * C
 s += f'<text x="{cx}" y="{cy+6}" text-anchor="middle" font-family="{SANS}" font-size="20" font-weight="800" fill="#f2f6f8">{lang[0][0]}</text>'
 for i, (n, b) in enumerate(lang):
-    y = 84 + i * 20
+    y = 89 + i * 20
     s += f'<rect x="212" y="{y-9}" width="10" height="10" rx="3" fill="{cols[i%len(cols)]}"/><text x="230" y="{y}" font-family="{SANS}" font-size="13" fill="#c3d1d8">{e(n)}</text><text x="392" y="{y}" text-anchor="end" font-family="{MONO}" font-size="12" fill="#7d8f9a">{b/tb*100:.1f}%</text>'
 s += '</svg>'
 open("assets/graph-languages.svg", "w", encoding="utf-8").write(s)

@@ -1,4 +1,4 @@
-<img src="assets/banner.svg" alt="Collins Maina, software engineer in Nairobi, Kenya" width="100%" />
+<img src="assets/banner-2.svg" alt="Collins Maina, software engineer in Nairobi, Kenya" width="100%" />
 
 <p align="center">
   <a href="https://www.linkedin.com/in/collins-maina-dev/"><img src="https://img.shields.io/badge/LinkedIn-collins--maina--dev-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
