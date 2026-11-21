@@ -50,20 +50,13 @@ def pill(w, h, x, y, text, fill, stroke, color):
             f'<text x="{x+w/2}" y="{y+h/2+5}" text-anchor="middle" font-family="{SANS}" font-size="15" font-weight="700" fill="{color}">{e(text)}</text>')
 
 
-# ---------- hero: banner + button that opens the 3D site ----------
+# ---------- hero: banner + button that opens the 3D site + "Selected work" heading ----------
 b, h = place(read("banner-2.svg"), 0, 0, 900)
 btn = pill(292, 40, 56, 262, "Open the interactive 3D portfolio  ↗", "#00C9A7", "#5eead4", "#04110f")
 btn = btn.replace("<rect", '<rect class="hb"', 1)
 style = '<style>.hb{animation:hb 2.4s ease-in-out infinite}@keyframes hb{50%{filter:brightness(1.25)}}</style>'
-save("hero.svg", 900, h + 40, style + b + btn)
-
-# ---------- section headings ----------
-for name, label, sub in [("h-work", "Selected work", "Tap a project to open its repo"),
-                         ("h-activity", "Activity", "Real contribution data from GitHub"),
-                         ("h-about", "About", ""),
-                         ("h-find", "Find me", "")]:
-    body, hh = heading(label, sub)
-    save(name + ".svg", 900, hh, body)
+hb, hh = heading("Selected work", "Tap a project to open its repo")
+save("hero.svg", 900, h + 20 + hh, style + b + btn + f'<g transform="translate(0,{h+20-12})">{hb}</g>')
 
 # ---------- project cards (50% wide each) ----------
 cards = [("card-connect.svg", "Open Connect"), ("card-esicom.svg", "Open Esicom Suppliers"),
@@ -73,27 +66,38 @@ for i, (f, label) in enumerate(cards):
     arrow = f'<text x="430" y="{16+ch+34}" text-anchor="end" font-family="{MONO}" font-size="13" fill="#00C9A7">{e(label)} ↗</text>'
     save(f"card-{i}.svg", 450, 16 + ch + 56, s + arrow)
 
-# ---------- activity ----------
-for name, f in [("act-stats", "graph-stats.svg"), ("act-lang", "graph-languages.svg")]:
-    s, ch = place(read(f), 20, 8, 410)
-    save(name + ".svg", 450, ch + 24, s)
-for name, f in [("act-streak", "graph-streak.svg"), ("act-bars", "graph-activity.svg"), ("act-heat", "graph-heatmap.svg")]:
-    s, ch = place(read(f), 20, 8, 860)
-    save(name + ".svg", 900, ch + 30, s)
-
-# ---------- stack + now ----------
-body = ""
-x, y = 28, 30
+# ---------- everything without its own link: one tall image (no seams) ----------
+body, y = "", 0
+hb, hh = heading("Activity", "Real contribution data from GitHub")
+body += hb
+y += hh
+for j, f in enumerate(["graph-stats.svg", "graph-languages.svg"]):
+    s, ch = place(read(f), 20 + j * 440, y, 420)
+    body += s
+y += ch + 16
+for f in ["graph-streak.svg", "graph-activity.svg", "graph-heatmap.svg"]:
+    s, ch = place(read(f), 20, y, 860)
+    body += s
+    y += ch + 16
+y += 20
+hb, hh = heading("About")
+body += f'<g transform="translate(0,{y})">{hb}</g>'
+y += hh + 6
+x = 28
 for t in ["Python", "Django", "Flask", "JavaScript", "React", "Tailwind", "Git", "Vercel"]:
     w = len(t) * 8.4 + 32
     body += (f'<rect x="{x}" y="{y}" width="{w:.0f}" height="34" rx="17" fill="#00C9A7" fill-opacity=".1" stroke="#00C9A7" stroke-opacity=".4"/>'
              f'<text x="{x+w/2:.0f}" y="{y+22}" text-anchor="middle" font-family="{MONO}" font-size="13" fill="#5eead4">{e(t)}</text>')
     x += w + 12
-body += f'<text x="28" y="130" font-family="{MONO}" font-size="14" letter-spacing="2.4" fill="#00C9A7">NOW</text><line x1="84" y1="126" x2="872" y2="126" stroke="#fff" stroke-opacity=".09"/>'
+y += 34 + 40
 for i, line in enumerate(["Studying software engineering at Moringa School and shipping client and personal projects.",
                           "Most interested in automation, web apps, and fixing everyday problems with code."]):
-    body += f'<text x="28" y="{164+i*28}" font-family="{SANS}" font-size="16" fill="#aebcc5">{e(line)}</text>'
-save("about.svg", 900, 250, body)
+    body += f'<text x="28" y="{y+i*28}" font-family="{SANS}" font-size="16" fill="#aebcc5">{e(line)}</text>'
+y += 28 + 36
+hb, hh = heading("Find me")
+body += f'<g transform="translate(0,{y})">{hb}</g>'
+y += hh - 10
+save("rest.svg", 900, y, body)
 
 # ---------- footer pills (3 x 33.3%) ----------
 for name, text, fill, stroke, color in [("f-linkedin", "LinkedIn  ↗", "#0A66C2", "#3b8ae6", "#ffffff"),
