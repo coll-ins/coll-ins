@@ -1,4 +1,4 @@
-<a href="https://coll-ins.github.io/coll-ins/site/"><img align="top" src="assets/s/hero.svg" width="100%" alt="Collins Maina, software engineer in Nairobi, Kenya." /></a>
+<a href="https://coll-ins.github.io/coll-ins/site/"><img align="top" src="assets/s/hero-2.svg" width="100%" alt="Collins Maina, software engineer in Nairobi, Kenya." /></a>
 <a href="https://www.linkedin.com/in/collins-maina-dev/"><img align="top" src="assets/s/t-linkedin.svg" width="33.33%" alt="LinkedIn" /></a><a href="https://github.com/coll-ins"><img align="top" src="assets/s/t-github.svg" width="33.33%" alt="GitHub" /></a><a href="https://coll-ins.github.io/coll-ins/site/"><img align="top" src="assets/s/t-site.svg" width="33.33%" alt="Interactive 3D portfolio" /></a>
 <img align="top" src="assets/s/h-work.svg" width="100%" alt="Selected work" />
 <a href="https://github.com/coll-ins/connect"><img align="top" src="assets/s/card-0.svg" width="50%" alt="Connect: seat booking for Nairobi bus SACCOs" /></a><a href="https://github.com/coll-ins/Esicom_suppliers"><img align="top" src="assets/s/card-1.svg" width="50%" alt="Esicom Suppliers: business site with a built-in ledger" /></a>
