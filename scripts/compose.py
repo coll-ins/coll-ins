@@ -52,7 +52,7 @@ def pill(w, h, x, y, text, fill, stroke, color):
 
 # ---------- hero: banner + button that opens the 3D site + "Selected work" heading ----------
 b, h = place(read("banner-2.svg"), 0, 0, 900)
-btn = pill(292, 40, 56, 262, "Open the interactive 3D portfolio  ↗", "#00C9A7", "#5eead4", "#04110f")
+btn = pill(292, 40, 56, 280, "Open the interactive 3D portfolio  ↗", "#00C9A7", "#5eead4", "#04110f")
 btn = btn.replace("<rect", '<rect class="hb"', 1)
 style = '<style>.hb{animation:hb 2.4s ease-in-out infinite}@keyframes hb{50%{filter:brightness(1.25)}}</style>'
 hb, hh = heading("Selected work", "Tap a project to open its repo")
