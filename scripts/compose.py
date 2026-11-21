@@ -52,7 +52,7 @@ def pill(w, h, x, y, text, fill, stroke, color):
 
 # ---------- hero: just the banner (clicking it opens the 3D site) ----------
 b, h = place(read("banner-2.svg"), 0, 0, 900)
-save("hero-4.svg", 900, h, b)
+save("hero-5.svg", 900, h, b)
 
 # ---------- find-me row right under the banner (3 x 33.3%, each its own link) ----------
 for name, text, fill, stroke, color in [("t-linkedin", "LinkedIn  ↗", "#0A66C2", "#3b8ae6", "#ffffff"),

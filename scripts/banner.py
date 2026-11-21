@@ -96,14 +96,11 @@ for k, text in enumerate(STATEMENTS):
     st_defs += (f'<clipPath id="sc{k}"><rect x="{x0-4:.1f}" y="{SY-30}" width="0" height="42">'
                 f'<animate attributeName="width" dur="{LOOP}s" repeatCount="indefinite" calcMode="discrete" keyTimes="{ktk}" values="{";".join(f"{(w+8) if w else 0:.1f}" for w in ws)}"/></rect></clipPath>')
     st_text += (f'<text x="{x0:.1f}" y="{SY}" font-family="{SANS}" font-size="25" font-weight="800" fill="#eafcf8" '
-                f'textLength="{L:.1f}" lengthAdjust="spacingAndGlyphs" clip-path="url(#sc{k})" class="tw">{e(text)}</text>')
-    st_cur += (f'<rect class="blink tw" x="-100" y="{SY-24}" width="3" height="30" rx="1.5" fill="#00C9A7" filter="url(#glow)">'
+                f'textLength="{L:.1f}" lengthAdjust="spacingAndGlyphs" clip-path="url(#sc{k})">{e(text)}</text>')
+    st_cur += (f'<rect class="blink" x="-100" y="{SY-24}" width="3" height="30" rx="1.5" fill="#00C9A7" filter="url(#glow)">'
                f'<animate attributeName="x" dur="{LOOP}s" repeatCount="indefinite" calcMode="discrete" keyTimes="{ktk}" values="{";".join(f"{c:.1f}" for c in cs)}"/></rect>')
 
 static = f'<text class="st" x="{CX}" y="132" text-anchor="middle" font-family="{SANS}" font-size="62" font-weight="800" fill="url(#name)" letter-spacing="-1.5">{NAME}</text>'
-for k, text in enumerate(STATEMENTS):
-    static += (f'<text class="st sf" style="animation-delay:{k*5}s" x="{CX}" y="{SY}" text-anchor="middle" font-family="{SANS}" '
-               f'font-size="25" font-weight="800" fill="#eafcf8">{e(text)}</text>')
 
 roles = ["web apps", "automation", "APIs", "agents"]
 PILL_X = CX - 188
@@ -142,8 +139,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 .cur,.blink{{animation:blink 1s steps(1) infinite}}@keyframes blink{{50%{{opacity:0}}}}
 .pulse{{animation:pulse 3s ease-in-out infinite}}@keyframes pulse{{0%,100%{{opacity:.7}}50%{{opacity:1}}}}
 .scan{{animation:scan 7s linear infinite}}@keyframes scan{{from{{transform:translateX(-160px) skewX(-18deg)}}to{{transform:translateX(1060px) skewX(-18deg)}}}}
-.st{{display:none}}.sf{{opacity:0;animation:sfade 20s infinite}}
-@keyframes sfade{{0%{{opacity:0}}2%,22%{{opacity:1}}25%,100%{{opacity:0}}}}
+.st{{display:none}}
 @media (max-width:640px){{.tw{{display:none}}.st{{display:inline}}}}
 .live{{animation:live 1.8s ease-in-out infinite}}@keyframes live{{50%{{opacity:.35}}}}
 .bar{{animation:barin 11s ease-out infinite;transform-origin:{CX}px 0}}
