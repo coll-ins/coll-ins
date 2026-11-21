@@ -249,16 +249,17 @@ document.querySelectorAll(".tilt").forEach(function(c){
 });
 
 // ---- cursor glow + hero name parallax ----
-var glow=document.getElementById("glow"),name=document.getElementById("name"),mx=0,my=0;
+var glow=document.getElementById("glow"),heroName=document.getElementById("name"),mx=0,my=0;
 window.addEventListener("mousemove",function(e){
   glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";
   mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5);
-  name.style.transform="perspective(900px) rotateY("+(mx*10)+"deg) rotateX("+(-my*8)+"deg)";
+  heroName.style.transform="perspective(900px) rotateY("+(mx*10)+"deg) rotateX("+(-my*8)+"deg)";
 });
 
 // ---- three.js background ----
-(function(){
-  if(!window.THREE||matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+(function startScene(tries){
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+  if(!window.THREE){if((tries||0)<80)setTimeout(function(){startScene((tries||0)+1)},100);return}
   var cv=document.getElementById("bg"),r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
   r.setPixelRatio(Math.min(devicePixelRatio,2));
   var s=new THREE.Scene(),cam=new THREE.PerspectiveCamera(55,1,.1,100);cam.position.z=9;
