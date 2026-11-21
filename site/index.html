@@ -259,7 +259,10 @@ window.addEventListener("mousemove",function(e){
 // ---- three.js background ----
 (function startScene(tries){
   if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
-  if(!window.THREE){if((tries||0)<80)setTimeout(function(){startScene((tries||0)+1)},100);return}
+  if(!window.THREE){
+    tries=tries||0;
+    if(tries===8&&!window.__t3){window.__t3=1;var sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";document.head.appendChild(sc)}
+    if(tries<100)setTimeout(function(){startScene(tries+1)},100);return}
   var cv=document.getElementById("bg"),r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
   r.setPixelRatio(Math.min(devicePixelRatio,2));
   var s=new THREE.Scene(),cam=new THREE.PerspectiveCamera(55,1,.1,100);cam.position.z=9;
