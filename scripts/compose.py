@@ -50,13 +50,19 @@ def pill(w, h, x, y, text, fill, stroke, color):
             f'<text x="{x+w/2}" y="{y+h/2+5}" text-anchor="middle" font-family="{SANS}" font-size="15" font-weight="700" fill="{color}">{e(text)}</text>')
 
 
-# ---------- hero: banner + button that opens the 3D site + "Selected work" heading ----------
+# ---------- hero: just the banner (clicking it opens the 3D site) ----------
 b, h = place(read("banner-2.svg"), 0, 0, 900)
-btn = pill(292, 40, 56, 280, "Open the interactive 3D portfolio  ↗", "#00C9A7", "#5eead4", "#04110f")
-btn = btn.replace("<rect", '<rect class="hb"', 1)
-style = '<style>.hb{animation:hb 2.4s ease-in-out infinite}@keyframes hb{50%{filter:brightness(1.25)}}</style>'
+save("hero.svg", 900, h, b)
+
+# ---------- find-me row right under the banner (3 x 33.3%, each its own link) ----------
+for name, text, fill, stroke, color in [("t-linkedin", "LinkedIn  ↗", "#0A66C2", "#3b8ae6", "#ffffff"),
+                                        ("t-github", "GitHub  ↗", "#161b22", "#2C5364", "#e6edf3"),
+                                        ("t-site", "3D Portfolio  ↗", "#00C9A7", "#5eead4", "#04110f")]:
+    save(name + ".svg", 300, 96, pill(236, 48, 32, 14, text, fill, stroke, color))
+
+# ---------- "Selected work" heading ----------
 hb, hh = heading("Selected work", "Tap a project to open its repo")
-save("hero.svg", 900, h + 20 + hh, style + b + btn + f'<g transform="translate(0,{h+20-12})">{hb}</g>')
+save("h-work.svg", 900, hh, hb)
 
 # ---------- project cards (50% wide each) ----------
 cards = [("card-connect.svg", "Open Connect"), ("card-esicom.svg", "Open Esicom Suppliers"),
