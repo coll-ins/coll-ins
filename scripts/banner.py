@@ -96,9 +96,14 @@ for k, text in enumerate(STATEMENTS):
     st_defs += (f'<clipPath id="sc{k}"><rect x="{x0-4:.1f}" y="{SY-30}" width="0" height="42">'
                 f'<animate attributeName="width" dur="{LOOP}s" repeatCount="indefinite" calcMode="discrete" keyTimes="{ktk}" values="{";".join(f"{(w+8) if w else 0:.1f}" for w in ws)}"/></rect></clipPath>')
     st_text += (f'<text x="{x0:.1f}" y="{SY}" font-family="{SANS}" font-size="25" font-weight="800" fill="#eafcf8" '
-                f'textLength="{L:.1f}" lengthAdjust="spacingAndGlyphs" clip-path="url(#sc{k})">{e(text)}</text>')
-    st_cur += (f'<rect class="blink" x="-100" y="{SY-24}" width="3" height="30" rx="1.5" fill="#00C9A7" filter="url(#glow)">'
+                f'textLength="{L:.1f}" lengthAdjust="spacingAndGlyphs" clip-path="url(#sc{k})" class="tw">{e(text)}</text>')
+    st_cur += (f'<rect class="blink tw" x="-100" y="{SY-24}" width="3" height="30" rx="1.5" fill="#00C9A7" filter="url(#glow)">'
                f'<animate attributeName="x" dur="{LOOP}s" repeatCount="indefinite" calcMode="discrete" keyTimes="{ktk}" values="{";".join(f"{c:.1f}" for c in cs)}"/></rect>')
+
+static = f'<text class="st" x="{CX}" y="132" text-anchor="middle" font-family="{SANS}" font-size="62" font-weight="800" fill="url(#name)" letter-spacing="-1.5">{NAME}</text>'
+for k, text in enumerate(STATEMENTS):
+    static += (f'<text class="st sf" style="animation-delay:{k*5}s" x="{CX}" y="{SY}" text-anchor="middle" font-family="{SANS}" '
+               f'font-size="25" font-weight="800" fill="#eafcf8">{e(text)}</text>')
 
 roles = ["web apps", "automation", "APIs", "agents"]
 PILL_X = CX - 188
@@ -137,6 +142,9 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 .cur,.blink{{animation:blink 1s steps(1) infinite}}@keyframes blink{{50%{{opacity:0}}}}
 .pulse{{animation:pulse 3s ease-in-out infinite}}@keyframes pulse{{0%,100%{{opacity:.7}}50%{{opacity:1}}}}
 .scan{{animation:scan 7s linear infinite}}@keyframes scan{{from{{transform:translateX(-160px) skewX(-18deg)}}to{{transform:translateX(1060px) skewX(-18deg)}}}}
+.st{{display:none}}.sf{{opacity:0;animation:sfade 20s infinite}}
+@keyframes sfade{{0%{{opacity:0}}2%,22%{{opacity:1}}25%,100%{{opacity:0}}}}
+@media (max-width:640px){{.tw{{display:none}}.st{{display:inline}}}}
 .live{{animation:live 1.8s ease-in-out infinite}}@keyframes live{{50%{{opacity:.35}}}}
 .bar{{animation:barin 11s ease-out infinite;transform-origin:{CX}px 0}}
 @keyframes barin{{0%,4%{{transform:scaleX(0)}}30%,86%{{transform:scaleX(1)}}96%,100%{{transform:scaleX(0)}}}}
@@ -152,11 +160,11 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 </g>
 {cubes}
 <text x="{CX}" y="48" text-anchor="middle" font-family="{MONO}" font-size="14" fill="#7ff0dc">~/coll-ins <tspan fill="#8fa1ac">on</tspan> main <tspan fill="#28c840">&#9679;</tspan></text>
-<text x="{name_x0:.1f}" y="132" font-family="{SANS}" font-size="64" font-weight="800" fill="url(#name)" letter-spacing="-1.5" textLength="{NAME_W}" lengthAdjust="spacingAndGlyphs" clip-path="url(#tc)">{NAME}</text>
-<rect x="{name_x0:.1f}" y="84" width="4" height="62" rx="2" fill="#00C9A7" filter="url(#glow)" class="blink"><animate attributeName="x" dur="11s" repeatCount="indefinite" calcMode="discrete" keyTimes="{kt}" values="{cur_x}"/></rect>
+<text x="{name_x0:.1f}" y="132" font-family="{SANS}" font-size="64" font-weight="800" fill="url(#name)" letter-spacing="-1.5" textLength="{NAME_W}" lengthAdjust="spacingAndGlyphs" clip-path="url(#tc)" class="tw">{NAME}</text>
+<rect x="{name_x0:.1f}" y="84" width="4" height="62" rx="2" fill="#00C9A7" filter="url(#glow)" class="blink tw"><animate attributeName="x" dur="11s" repeatCount="indefinite" calcMode="discrete" keyTimes="{kt}" values="{cur_x}"/></rect>
 <rect class="bar" x="{CX-35}" y="150" width="70" height="4" rx="2" fill="url(#bar)"/>
 <text x="{CX}" y="184" text-anchor="middle" font-family="{SANS}" font-size="18" fill="#cfe3ea">Software engineer &#183; Nairobi, Kenya</text>
-{st_text}{st_cur}
+{st_text}{st_cur}{static}
 <rect x="{PILL_X}" y="{H-50}" width="376" height="38" rx="19" fill="url(#pillg)" stroke="#00C9A7" stroke-opacity=".4"/>
 <circle class="live" cx="{PILL_X+22}" cy="{H-31}" r="4.5" fill="#28c840" filter="url(#glow)"/>
 <text x="{PILL_X+38}" y="{H-26}" font-family="{MONO}" font-size="14" fill="#8fa1ac">currently building</text>
