@@ -1,13 +1,18 @@
-<img src="assets/profile.svg" alt="Collins Maina, software engineer in Nairobi, Kenya. Selected work: Connect, Esicom Suppliers, Nexus, Inventory Management. Activity: 829 contributions in the last year, 23-day longest streak." width="100%" />
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/collins-maina-dev/"><img src="https://img.shields.io/badge/LinkedIn-collins--maina--dev-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://coll-ins.github.io/coll-ins/site/"><img src="https://img.shields.io/badge/3D_Portfolio-open-00C9A7?style=for-the-badge&labelColor=0b1015" alt="Interactive 3D portfolio" /></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/coll-ins/connect"><img src="https://img.shields.io/badge/Connect-live-0f2a2a?style=for-the-badge&labelColor=0b1015&color=00C9A7" alt="Connect" /></a>
-  <a href="https://github.com/coll-ins/Esicom_suppliers"><img src="https://img.shields.io/badge/Esicom_Suppliers-live-0f2a2a?style=for-the-badge&labelColor=0b1015&color=00C9A7" alt="Esicom Suppliers" /></a>
-  <a href="https://github.com/coll-ins/nexus"><img src="https://img.shields.io/badge/Nexus-repo-0f2a2a?style=for-the-badge&labelColor=0b1015&color=2C5364" alt="Nexus" /></a>
-  <a href="https://github.com/coll-ins/inventory-management"><img src="https://img.shields.io/badge/Inventory_Management-repo-0f2a2a?style=for-the-badge&labelColor=0b1015&color=2C5364" alt="Inventory Management" /></a>
-</p>
+<a href="https://coll-ins.github.io/coll-ins/site/"><img align="left" src="assets/s/hero.svg" width="100%" alt="Collins Maina, software engineer in Nairobi, Kenya. Open the interactive 3D portfolio." /></a>
+<img align="left" src="assets/s/h-work.svg" width="100%" alt="Selected work" />
+<a href="https://github.com/coll-ins/connect"><img align="left" src="assets/s/card-0.svg" width="50%" alt="Connect: seat booking for Nairobi bus SACCOs" /></a>
+<a href="https://github.com/coll-ins/Esicom_suppliers"><img align="left" src="assets/s/card-1.svg" width="50%" alt="Esicom Suppliers: business site with a built-in ledger" /></a>
+<a href="https://github.com/coll-ins/nexus"><img align="left" src="assets/s/card-2.svg" width="50%" alt="Nexus: an agent council for Claude Code" /></a>
+<a href="https://github.com/coll-ins/inventory-management"><img align="left" src="assets/s/card-3.svg" width="50%" alt="Inventory Management: Flask API and CLI" /></a>
+<img align="left" src="assets/s/h-activity.svg" width="100%" alt="Activity" />
+<img align="left" src="assets/s/act-stats.svg" width="50%" alt="GitHub stats and rank" />
+<img align="left" src="assets/s/act-lang.svg" width="50%" alt="Language breakdown" />
+<img align="left" src="assets/s/act-streak.svg" width="100%" alt="829 contributions, 15 day current streak, 23 day longest streak" />
+<img align="left" src="assets/s/act-bars.svg" width="100%" alt="Contributions per day, last 60 days" />
+<img align="left" src="assets/s/act-heat.svg" width="100%" alt="Contribution map for the last year" />
+<img align="left" src="assets/s/h-about.svg" width="100%" alt="About" />
+<img align="left" src="assets/s/about.svg" width="100%" alt="Stack: Python, Django, Flask, JavaScript, React, Tailwind, Git, Vercel. Studying software engineering at Moringa School." />
+<img align="left" src="assets/s/h-find.svg" width="100%" alt="Find me" />
+<a href="https://www.linkedin.com/in/collins-maina-dev/"><img align="left" src="assets/s/f-linkedin.svg" width="33.3%" alt="LinkedIn" /></a>
+<a href="https://github.com/coll-ins"><img align="left" src="assets/s/f-github.svg" width="33.3%" alt="GitHub" /></a>
+<a href="https://coll-ins.github.io/coll-ins/site/"><img align="left" src="assets/s/f-site.svg" width="33.4%" alt="Interactive 3D portfolio" /></a>
